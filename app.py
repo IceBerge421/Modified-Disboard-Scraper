@@ -48,7 +48,8 @@ servers = []
 
 # Progress Bar
 print(f"Fetching {pages} Pages: \n")
-bar = tqdm(total=pages)
+if not debug:
+    bar = tqdm(total=pages)
 
 # Iterate over each page for a tag
 for page in range(1, pages + 1):
@@ -90,7 +91,8 @@ for page in range(1, pages + 1):
         servers.append(server)
 
     # Increment Progress
-    bar.update(1)
+    if not debug:
+        bar.update(1)
 
 df = pd.DataFrame(
     servers,
@@ -106,7 +108,8 @@ df = pd.DataFrame(
 )
 
 # Close Progress Bar
-bar.close()
+if not debug:
+    bar.close()
 
 if top_positional_tags:
     print("\n== Top Tags by Position ==")
