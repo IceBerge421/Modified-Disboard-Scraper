@@ -21,9 +21,13 @@ for page in range(1, 16):
         for tag_ in parent.find_all(class_="tag"):
             tag_name = tag_.find(class_="name")
             tags.append(tag_name.contents[0].strip())
+        try:  # Dirty hack. Too lazy to use hasattr.
+            members_online_count = server_online.contents[0].strip()
+        except AttributeError as err_info:
+            members_online_count = "N/A"
         server = [
             server_name_link.contents[0].strip(),
-            server_online.contents[0].strip()
+            members_online_count
         ]
         server.extend(tags)
         servers.append(server)
