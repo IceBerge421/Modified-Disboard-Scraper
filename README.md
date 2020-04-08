@@ -41,7 +41,7 @@ python app.py
 
 ## Configuration Options
 
-You should make a copy of the included `config.example.toml` file and save it as `config.toml` without your own settings for it to be picked up by the script.
+You should make a copy of the included `config.example.toml` file and save it as `config.toml` with your own settings for it to be picked up by the script.
 
 |  Configuration        |  Type            | Description                                                                                                                               |
 |-----------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
