@@ -1,0 +1,10 @@
+# Copy this file as config.toml for the scraper to pick up the settings.
+# Help for these setting can be found on the README.md file.
+
+[bot]
+tag = "community"
+pages = 15
+top_positional_tags = true
+tpt_limit = 5
+csv = true
+debug = false

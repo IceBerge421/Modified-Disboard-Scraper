@@ -8,6 +8,9 @@ verify_ssl = true
 [packages]
 bs4 = "*"
 pandas = "*"
+toml = "*"
+schema = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.8"
