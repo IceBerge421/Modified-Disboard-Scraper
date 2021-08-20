@@ -1,6 +1,7 @@
 import sys
-from urllib.request import Request, urlopen
 
+import cloudscraper
+import discord
 import pandas as pd
 import toml
 from bs4 import BeautifulSoup
@@ -54,15 +55,18 @@ if not debug:
 # Iterate over each page for a tag
 for page in range(1, pages + 1):
     url = f"https://disboard.org/servers/tag/{tag}/{page}?sort=-member_count"
-    request = Request(url, headers=HEADERS)
-    resource = urlopen(request)
-    content = resource.read().decode(resource.headers.get_content_charset())
-    soup = BeautifulSoup(content, 'html.parser')
+    scraper = cloudscraper.create_scraper()
+    resource = scraper.get(url).text
+    soup = BeautifulSoup(resource, 'html.parser')
 
     # Iterate over each server
     for server_info in soup.find_all(class_='server-info'):
         server_name = server_info.find(class_="server-name")
         server_name_link = server_name.find('a')
+
+        server_id = server_name_link['href'].split('/')[2]
+        server_created_at = discord.utils.snowflake_time(int(server_id))
+
         server_online = server_info.find(class_="server-online")
 
         parent = server_info.parent.parent
@@ -80,7 +84,9 @@ for page in range(1, pages + 1):
         # Create a server
         server = [
             server_name_link.contents[0].strip(),
-            members_online_count
+            members_online_count,
+            server_created_at,
+            f"https://disboard.org{server_name_link['href']}"
         ]
         server.extend(tags)
 
@@ -99,6 +105,8 @@ df = pd.DataFrame(
     columns=[
         'Server Name',
         'Members Online',
+        'Creation Date',
+        "Invite Link",
         'Tag 1',
         'Tag 2',
         'Tag 3',
@@ -119,7 +127,13 @@ if top_positional_tags:
 
 if csv:
     print("Creating output file...")
-    df.to_csv(f'{tag}_servers.csv', index=False, encoding='utf-8-sig')
+    # df.sort_values(by='Creation Date', inplace=True)
+    df.to_csv(
+        f'{tag}_servers.csv',
+        index=False,
+        encoding='utf-8-sig',
+        date_format='%Y:%m:%d'
+    )
     print(f"Done writing: {tag}_servers.csv")
 else:
     print("Exiting without writing file!")

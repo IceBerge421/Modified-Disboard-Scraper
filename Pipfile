@@ -11,6 +11,7 @@ pandas = "*"
 toml = "*"
 schema = "*"
 tqdm = "*"
+"discord.py" = "*"
 
 [requires]
 python_version = "3.8"
