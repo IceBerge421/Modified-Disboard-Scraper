@@ -1,15 +1,39 @@
-# Disboard Scraper
+# Modified Disboard Scraper
 
-This script will scrape all the servers on a particular tag and show various statistics. It can also output the data into a file. This script should be used in moderation to prevent being detected as a DOS attack.
+This is a modified version of the DisboardScraper repository by daegontaven / Discord Federation.
 
-These are the features currently available:
+It scrapes servers from Disboard based on tags and can output the data as a CSV file. This fork features the following adjustments from the original:
 
-- Display online member counts.
-- Display tags of each server.
-- Show most popular tags for each tag position.
-- Output server data as a file
+- It collects *server descriptions* in addition to server names, online members, and tags.
+- HTML elements are cleaned from server descriptions.
+- It includes a sleep function to allow scraping in higher volumes without getting rate limited.
 
-## Usage
+Features available from the original scraper:
+
+- Displaying online member counts.
+- Displaying tags of each server.
+- Showing most popular tags for each tag position.
+- Outputing server data as a CSV file.
+
+This repository is an updated version of the script used in our article on hate networks on Discord, available here: [LINK]
+
+If you would like a more in-depth tutorial on how to install and use the scraper, see my blog post here: [LINK.]
+
+## Using the Scraper
+
+- Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
+- Then install [PyCharm](https://www.jetbrains.com/pycharm/).
+- Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
+
+Clone this repository:
+
+```
+git clone https://github.com/IceBerge421/Modified-Disboard-Scraper.git
+```
+
+Open the folder in PyCharm.
+
+From there, go to File > Settings > select "Python Interpreter"
 
 #### Requirements:
 - Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
