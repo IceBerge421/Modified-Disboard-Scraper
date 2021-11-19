@@ -93,7 +93,7 @@ server_description = parent.find(class_="server-description is-elastic-text")
 
 ### Adjusting Delay
 
-In my experience, Disboard is quite finnicky when it comes to handling many scraped queries. In order to avoid being flagged as a DOS attack and getting ratelimited by Disboard, this script includes a built-in delay between each page it scrapes. To adjust the rate delay, simply adjust the time (in seconds) in the following line in `App.py`:
+In my experience, Disboard is quite finnicky when it comes to handling many scraped queries. In order to avoid being flagged as a DOS attack and getting rate limited by Disboard, this script includes a built-in delay between each page it scrapes. To adjust the rate delay, simply adjust the time (in seconds) in the following line in `App.py`:
 
 ```
 time.sleep(5)
