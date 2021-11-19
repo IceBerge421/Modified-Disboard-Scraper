@@ -40,7 +40,7 @@ Open the new folder you just cloned in PyCharm.
 
 In PyCharm, go to File > Settings > [Project Name] > Python Interpreter.
 
-Select your version of Python as the interpeter. PyCharm will then create a virtual environment. Now, in the Interpreter Menu, click the '+' symbol to add packages. Add the following packages:
+Select your version of Python as the interpeter. PyCharm will then create a virtual environment. Now, in the Interpreter Menu, click the '+' symbol to add packages. Add the following packages (make sure the names match exactly):
 
 - `cloudscraper`
 - `pandas`
