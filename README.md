@@ -19,11 +19,11 @@ This repository is an updated version of the script used in our article on hate 
 
 If you would like a more in-depth tutorial on how to install and use the scraper, see my blog post here: [LINK.]
 
-## Using the Scraper
+## Setting Up the Environment
 
 - Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
-- Then install [PyCharm](https://www.jetbrains.com/pycharm/).
-- Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
+- Then install [PyCharm](https://www.jetbrains.com/pycharm/) (the Community version is fine!).
+- Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed. If you are unfamiliar with Git, you may also install [GitHub Desktop](https://desktop.github.com/) as a user-friendly way to use Git.
 
 Clone this repository:
 
@@ -31,47 +31,47 @@ Clone this repository:
 git clone https://github.com/IceBerge421/Modified-Disboard-Scraper.git
 ```
 
-Open the folder in PyCharm.
+Open the new folder you just cloned in PyCharm.
 
-From there, go to File > Settings > select "Python Interpreter"
+In PyCharm, go to File > Settings > [Project Name] > Python Interpreter."
 
-#### Requirements:
-- Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
-- Then install [pipenv](https://pypi.org/project/pipenv/).
-- Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed
+Select your version of Python as the interpeter. PyCharm will then create a virtual environment. Now, in the Interpreter Menu, click the '+' symbol to add packages. Add the following packages:
 
-Clone this repository:
-```
-git clone https://github.com/DiscordFederation/DisboardScraper.git
-```
+- `cloudscraper`
+- `pandas`
+- `discord.py`
+- `toml`
+- `beautifulsoup4`
+- `schema`
+- `tqdm`
+- `lxml`
 
-Then enter a pipenv environment using this command:
+## Running the Scraper
 
-```
-pipenv shell
-```
+Duplicate the file `config.example.toml` and rename it to `config.toml`. 
+(Note: If you run the project and do not see any output, you likely forgot to rename the new config file.)
 
-Next install the requirements:
+Edit the newly the newly created `config.toml` file by setting any of the Configuration Options (see below).
 
-```
-pipenv install
-```
-
-Finally edit the newly created `config.toml` file and run the script.
+When you are ready, you can run the script clicking Run > and selecting `App` or run it from the terminal:
 
 ```
 python app.py
 ```
+The scraper will output to the terminal, and a new file titled `[tag-name].csv` will be newly created in the project folder.
 
 ## Configuration Options
+
+### Scraper Configuration
 
 You should make a copy of the included `config.example.toml` file and save it as `config.toml` with your own settings for it to be picked up by the script.
 
 |  Configuration        |  Type            | Description                                                                                                                               |
 |-----------------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| `tag`                 | `str`            | This is the tag you want to analyze for servers.                                                                                          |
+| `tag`                 | `str`            | This is the tag you want to scrape  servers.                                                                                          |
 | `pages`               | `int`            | This configures how many pages for a tag you want to scrape.                                                                              |
 | `top_positional_tags` | `true`,  `false` | This displays the most popular tags for each tag's position.                                                                              |
 | `tpt_limit`           | `int`            | Limits the number of tags shows for all tag positions. This only works if `top_positional_tags` is enabled.                               |
 | `csv`                 | `true`, `false`  | When enabled will output all scraped data into a CSV file. This should make further analysis easier.                                      |
 | `debug`               | `true`, `false`  | While set to `true` the script will display more output onto the console for debugging purposes. This will also disable the progress bar. |
+### Scraper Configuration
