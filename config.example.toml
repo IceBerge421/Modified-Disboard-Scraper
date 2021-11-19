@@ -1,6 +1,9 @@
 # Copy this file as config.toml for the scraper to pick up the settings.
 # Help for these setting can be found on the README.md file.
 
+# !! To scrape the full number of pages, you will need to search the tag on Disboard and check the total manually.
+# Note that Disboard displays 24 servers per page.
+
 [bot]
 tag = "community"
 pages = 15

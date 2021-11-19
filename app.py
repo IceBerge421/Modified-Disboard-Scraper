@@ -4,6 +4,8 @@ import cloudscraper
 import discord
 import pandas as pd
 import toml
+import time
+
 from bs4 import BeautifulSoup
 from schema import Schema, Or, And, Use
 from tqdm import tqdm
@@ -70,6 +72,13 @@ for page in range(1, pages + 1):
         server_online = server_info.find(class_="server-online")
 
         parent = server_info.parent.parent
+
+        # If you want to scrape the *entire* description with HTML elements included, swap in this line for the next
+        # server_description = parent.find(class_="server-description is-elastic-text")
+
+        # Note that this code differs from the main branch and provides the server description
+        server_description = BeautifulSoup(parent.find(class_="server-description is-elastic-text").text, "lxml").text
+
         tags = []
         for tag_ in parent.find_all(class_="tag"):
             tag_name = tag_.find(class_="name")
@@ -86,6 +95,7 @@ for page in range(1, pages + 1):
             server_name_link.contents[0].strip(),
             members_online_count,
             server_created_at,
+            server_description,
             f"https://disboard.org{server_name_link['href']}"
         ]
         server.extend(tags)
@@ -95,6 +105,14 @@ for page in range(1, pages + 1):
 
         # Add each server found
         servers.append(server)
+
+    ''' ADJUST DELAY SETTINGS BELOW
+    This sets the amount of time (in seconds) before moving on to the next page. Default is 5 seconds.
+    Adjusting this higher will mean slower collection times, but less chance of being rate limited
+    by Disboard. Adjust as needed. Not required if collecting fewer than 10 pages of servers.'''
+
+    # Set the delay
+    time.sleep(5)
 
     # Increment Progress
     if not debug:
@@ -106,6 +124,7 @@ df = pd.DataFrame(
         'Server Name',
         'Members Online',
         'Creation Date',
+        "Description",
         "Invite Link",
         'Tag 1',
         'Tag 2',
