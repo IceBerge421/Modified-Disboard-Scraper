@@ -10,8 +10,9 @@ It scrapes servers from Disboard based on tags and can output the data as a CSV 
 
 Features available from the original scraper:
 
-- Displaying online member counts.
+- Displaying online member counts for each server.
 - Displaying tags of each server.
+- Scraping the invite link for each server.
 - Showing most popular tags for each tag position.
 - Outputing server data as a CSV file.
 
@@ -21,9 +22,13 @@ If you would like a more in-depth tutorial on how to install and use the scraper
 
 ## Setting Up the Environment
 
+### Intall Requirements
+
 - Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
 - Then install [PyCharm](https://www.jetbrains.com/pycharm/) (the Community version is fine!).
 - Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed. If you are unfamiliar with Git, you may also install [GitHub Desktop](https://desktop.github.com/) as a user-friendly way to use Git.
+
+### Set Up Project
 
 Clone this repository:
 
@@ -74,4 +79,25 @@ You should make a copy of the included `config.example.toml` file and save it as
 | `tpt_limit`           | `int`            | Limits the number of tags shows for all tag positions. This only works if `top_positional_tags` is enabled.                               |
 | `csv`                 | `true`, `false`  | When enabled will output all scraped data into a CSV file. This should make further analysis easier.                                      |
 | `debug`               | `true`, `false`  | While set to `true` the script will display more output onto the console for debugging purposes. This will also disable the progress bar. |
-### Scraper Configuration
+### Cleaning Description Text
+
+By default, the script uses BeautifulSoup to remove all HTML tags from the output. In certain circumstances, you may want to view such HTML content. To do so, simply replace this line in `App.py`:
+
+```
+server_description = BeautifulSoup(parent.find(class_="server-description is-elastic-text").text, "lxml").text
+```
+with this line, which does not replace HTML elements:
+```
+server_description = parent.find(class_="server-description is-elastic-text")
+```
+
+### Adjusting Delay
+
+In my experience, Disboard is quite finnicky when it comes to handling many scraped queries. In order to avoid being flagged as a DOS attack and getting ratelimited by Disboard, this script includes a built-in delay between each page it scrapes. To adjust the rate delay, simply adjust the time (in seconds) in the following line in `App.py`:
+
+```
+time.sleep(5)
+```
+By default, this is delay is set to five seconds, but feel free to adjust as best suits your needs. Note that a longer delay means increased collection time. 
+
+*In my experience, the delay is not necessary when scraping fewer than ten pages of servers.*
