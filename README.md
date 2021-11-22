@@ -16,19 +16,19 @@ Features available from the original scraper:
 - Showing most popular tags for each tag position.
 - Outputing server data as a CSV file.
 
-This repository is an updated version of the script used in our article on hate networks on Discord, available here: [LINK]
+This repository is an updated version of the script used in our article on hate networks on Discord, available here: [TK - LINK]
 
-If you would like a more in-depth tutorial on how to install and use the scraper, see my blog post here: [LINK.]
+If you would like a more in-depth tutorial on how to install and use the scraper, see my video tutorial here: [TK - LINK.]
 
 ## Setting Up the Environment
 
-### Intall Requirements
+### Install Requirements
 
 - Make sure to download the latest [Python (>= 3.8.x)](https://www.python.org/downloads/).
 - Then install [PyCharm](https://www.jetbrains.com/pycharm/) (the Community version is fine!).
 - Ensure you have [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed. If you are unfamiliar with Git, you may also install [GitHub Desktop](https://desktop.github.com/) as a user-friendly way to use Git.
 
-### Set Up Project
+### Cloning the Project
 
 Clone this repository:
 
