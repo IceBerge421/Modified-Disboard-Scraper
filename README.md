@@ -54,9 +54,9 @@ Select your version of Python as the interpeter. PyCharm will then create a virt
 ## Running the Scraper
 
 Duplicate the file `config.example.toml` and rename it to `config.toml`. 
-(Note: If you run the project and do not see any output, you likely forgot to rename the new config file.)
+(Note: If you run the project and do not see any output, you likely forgot to rename the new config file).
 
-Edit the newly the newly created `config.toml` file by setting any of the Configuration Options (see below).
+Edit the newly created `config.toml` file by setting any of the Configuration Options (see below).
 
 When you are ready, you can run the script clicking Run > and selecting `App` or run it from the terminal:
 
