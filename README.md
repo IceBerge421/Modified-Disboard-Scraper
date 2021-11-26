@@ -18,7 +18,15 @@ Features available from the original scraper:
 
 This repository is an updated version of the script used in our article on hate networks on Discord, available here: [TK - LINK]
 
-If you would like a more in-depth tutorial on how to install and use the scraper, see my video tutorial here: [TK - LINK.]
+## Google Colab Version
+
+### FOR ANYONE UNFAMILIAR WITH PYTHON
+
+I have made a Google Colab version of this code, that will allow you to run the scraper and collect data without having to install the whole notebook on your machine! Get up and running in less than 5 minutes by following this link!
+
+**EASY DISBOARD SCRAPER LINK:** https://colab.research.google.com/drive/1dXua_vcO1ywVNACC9Mnx5yicdPIm33Kv?usp=sharing
+
+For those who want more complete customization options, or to modify the script, follow the instructions below.
 
 ## Setting Up the Environment
 
