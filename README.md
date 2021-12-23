@@ -24,7 +24,7 @@ This repository is an updated version of the script used in our article on hate 
 
 I have made a Google Colab version of this code, that will allow you to run the scraper and collect data without having to install the whole notebook on your machine! Get up and running in less than 5 minutes by following this link! This version also includes many of my analysis tools for quick visualization and exploration.
 
-**EASY DISBOARD SCRAPER LINK:** https://colab.research.google.com/gist/IceBerge421/a58d154c01e1e4702eb99ecb0ad3045c/disboardscraper-analysistools.ipynb#scrollTo=GjXGQVBLn10c
+**EASY DISBOARD SCRAPER LINK:** https://colab.research.google.com/gist/IceBerge421/a58d154c01e1e4702eb99ecb0ad3045c/disboardscraper-analysistools.ipynb
 
 For those who want more complete customization options, or to modify the script, follow the instructions below.
 
