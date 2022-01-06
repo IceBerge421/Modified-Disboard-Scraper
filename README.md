@@ -16,7 +16,9 @@ Features available from the original scraper:
 - Showing most popular tags for each tag position.
 - Outputing server data as a CSV file.
 
-This repository is an updated version of the script used in our article on hate networks on Discord, available here: [TK - LINK]
+This repository is an updated version of the script used in our article on hate networks on Discord, available here: 
+
+["Mapping Discord's Darkside: Distributed hate networks on Disboard"](https://doi.org/10.1177/14614448211062548)
 
 ## Google Colab Version
 
