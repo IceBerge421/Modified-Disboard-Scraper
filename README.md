@@ -1,4 +1,9 @@
+<img src ="https://i2.wp.com/darcmode.org/wp-content/uploads/2021/12/Scraping2.png?w=1837&ssl=1" width = 70%>
+
+
 # Modified Disboard Scraper
+
+**Note: You can read my [blog post on working with Disboard data here](https://darcmode.org/scraping-disboard/)!**
 
 This is a modified version of the DisboardScraper repository by daegontaven / Discord Federation.
 
@@ -21,6 +26,8 @@ This repository is an updated version of the script used in our article on hate 
 ["Mapping Discord's Darkside: Distributed hate networks on Disboard"](https://doi.org/10.1177/14614448211062548)
 
 ## Google Colab Version
+
+<img src ="https://psberge.com/wp-content/uploads/2021/12/Scraper-Banner-1-scaled.jpg" width = 50%>
 
 ### FOR ANYONE UNFAMILIAR WITH PYTHON
 
@@ -73,7 +80,7 @@ When you are ready, you can run the script clicking Run > and selecting `App` or
 ```
 python app.py
 ```
-The scraper will output to the terminal, and a new file titled `[tag-name].csv` will be newly created in the project folder.
+The scraper will output to the terminal, and a new file titled `[tag-name].csv` will be created in the project folder.
 
 ## Configuration Options
 
