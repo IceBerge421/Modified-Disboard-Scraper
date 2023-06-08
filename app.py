@@ -5,6 +5,7 @@ import discord
 import pandas as pd
 import toml
 import time
+import random
 
 from bs4 import BeautifulSoup
 from schema import Schema, Or, And, Use
@@ -57,7 +58,7 @@ if not debug:
 # Iterate over each page for a tag
 for page in range(1, pages + 1):
     url = f"https://disboard.org/servers/tag/{tag}/{page}?sort=-member_count"
-    scraper = cloudscraper.create_scraper()
+    scraper = cloudscraper.create_scraper(disableCloudflareV1=True)
     resource = scraper.get(url).text
     soup = BeautifulSoup(resource, 'html.parser')
 
@@ -111,8 +112,10 @@ for page in range(1, pages + 1):
     Adjusting this higher will mean slower collection times, but less chance of being rate limited
     by Disboard. Adjust as needed. Not required if collecting fewer than 10 pages of servers.'''
 
+    sleepOffset = random.randint(2,15)
+
     # Set the delay
-    time.sleep(5)
+    time.sleep(sleepOffset)
 
     # Increment Progress
     if not debug:
