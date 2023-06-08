@@ -112,7 +112,7 @@ for page in range(1, pages + 1):
     by Disboard. Adjust as needed. Not required if collecting fewer than 10 pages of servers.'''
 
     # Set the delay
-    time.sleep(5)
+    time.sleep(50)
 
     # Increment Progress
     if not debug:
